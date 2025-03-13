@@ -1,0 +1,50 @@
+---
+crawl_company_financials:
+  description: Using SeleniumScrapingTool and ScrapeElementFromWebsiteTool, crawl
+    {target_website_url} to extract financial metrics for {company_name}, including
+    growth trends, P/E, ROE, ROCE, and P/B.
+  expected_output: Raw, structured financial data containing the required metrics
+    for {company_name}.
+  async_execution: false
+  agent: data_crawler
+process_financial_data:
+  description: Parse and validate the raw financial data extracted for {company_name}
+    from the crawl, handling any missing or inconsistent values, and format it into
+    a structured JSON object.
+  expected_output: A cleaned and formatted JSON object containing all relevant financial
+    metrics for {company_name}.
+  async_execution: false
+  agent: data_processor
+  context:
+  - crawl_company_financials
+crawl_peer_financial_data:
+  description: Utilize ScrapeWebsiteTool to crawl websites of companies in {peer_list}
+    and extract comparable financial metrics (growth trends, P/E, ROE, ROCE, and P/B)
+    for peer comparison analysis.
+  expected_output: A comparative table in JSON format containing the financial metrics
+    for each company in {peer_list}.
+  async_execution: false
+  agent: peer_comparator
+generate_investment_recommendation:
+  description: Evaluate the processed financial data of {company_name} alongside peer
+    comparison insights to generate a yes/no investment recommendation and to calculate
+    the optimal share quantity using industry benchmarks.
+  expected_output: A detailed report in pdf format for {company_name} with a clear yes/no recommendation
+    and recommended share quantity based on the analysis.
+  async_execution: false
+  agent: recommendation_maker
+  context:
+  - process_financial_data
+  - crawl_peer_financial_data
+log_process_details:
+  description: Consolidate logs and insights from all tasks executed for {company_name},
+    detailing each step taken by the agents in the automated pipeline.
+  expected_output: A comprehensive log report detailing the execution and results
+    of every agent's tasks in the financial analysis pipeline.
+  async_execution: false
+  agent: process_logger
+  context:
+  - crawl_company_financials
+  - process_financial_data
+  - crawl_peer_financial_data
+  - generate_investment_recommendation
