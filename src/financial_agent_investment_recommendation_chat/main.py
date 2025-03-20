@@ -12,9 +12,9 @@ def run():
     Run the crew.
     """
     inputs = {
-        'company_name': 'ITC Limited',
-        'target_website_url': 'https://www.screener.in/company/ITC/consolidated/',
-        'peer_list': 'GODPHI,GTCIND,HUL,NESTLEIND,PGHH,RELIANCE'
+        'company_name': 'Suzlon Energy Ltd',
+        'target_website_url': 'https://www.screener.in/company/SUZLON/',
+        'peer_list': 'SIEMENS,ABB,CGPOWER,BHEL,WAAREEENER,POWERINDIA'
     }
     FinancialAgentInvestmentRecommendationChatCrew().crew().kickoff(inputs=inputs)
 
@@ -25,7 +25,7 @@ def train():
     """
     inputs = {
         'company_name': 'Coal India',
-        'target_website_url': 'https://www.screener.in/company/COALINDIA/consolidated/',
+        'target_website_url': 'https://www.screener.in/company/COALINDIA/',
         'peer_list': 'VEDL,LLOYDSME,NMDC,KIOCL,GMDCLTD'
     }
     try:
@@ -50,7 +50,7 @@ def test():
     """
     inputs = {
         'company_name': 'TATAMOTORS',
-        'target_website_url': 'https://www.screener.in/company/TATAMOTORS/consolidated/',
+        'target_website_url': 'https://www.screener.in/company/TATAMOTORS/',
         'peer_list': 'ASHOKLEY,EICHERMOT,HEROMOTOCO,MAHINDRA,MARUTI'
     }
     try:

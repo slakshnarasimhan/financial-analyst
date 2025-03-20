@@ -5,7 +5,7 @@ data_crawler:
     to retrieve key metrics including growth trends, P/E, ROE, ROCE, and P/B.
   backstory: An expert in web scraping using Selenium and targeted HTML element extraction,
     proficient at gathering detailed financial data directly from source websites.
-  llm: gpt-4o
+  llm: deepseek
 data_processor:
   role: Data Analysis Specialist
   goal: Process and validate the extracted financial data for {company_name}, ensuring
@@ -13,7 +13,7 @@ data_processor:
   backstory: Renowned for meticulous data transformation and validation, this specialist
     ensures that all financial indicators are accurately processed to facilitate reliable
     analysis.
-  llm: gpt-4o
+  llm: deepseek/deepseek-reasoner
 peer_comparator:
   role: Peer Comparison Specialist
   goal: Gather and analyze financial data for companies in {peer_list} to benchmark
@@ -21,7 +21,7 @@ peer_comparator:
     and P/B.
   backstory: A seasoned professional in comparative market analysis, skilled at extracting
     and synthesizing data to provide comprehensive peer comparisons.
-  llm: gpt-4o
+  llm: deepseek/deepseek-reasoner
 recommendation_maker:
   role: Investment Recommendation Specialist
   goal: Evaluate the processed financial data and peer comparison insights of {company_name}
@@ -29,11 +29,10 @@ recommendation_maker:
     share quantity to buy.
   backstory: A financial analysis expert with extensive experience in interpreting
     key financial metrics and market trends to deliver actionable investment insights.
-  llm: gpt-4o
+  llm: deepseek/deepseek-reasoner
 process_logger:
   role: Process Logging Specialist
   goal: Maintain detailed logs and provide transparent insights about each agent's
     tasks and decisions throughout the financial analysis pipeline for {company_name}.
   backstory: Dedicated to ensuring accountability and traceability, this specialist
-    documents every step and key decision in the automated process.
-  llm: gpt-4o
+  llm: deepseek/deepseek-reasoner
